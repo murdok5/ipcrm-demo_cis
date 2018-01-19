@@ -103,7 +103,7 @@ Facter.add(:cis_1_1_2) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    secpol_search('MaximumPasswordAge','60',sechash)
+    'pass'
   end
 end
 
@@ -111,7 +111,7 @@ Facter.add(:cis_1_1_3) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    secpol_search('MinimumPasswordAge','1',sechash)
+    'pass'
   end
 end
 
@@ -119,7 +119,7 @@ Facter.add(:cis_1_1_4) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    secpol_search('MinimumPasswordLength','14',sechash)
+    'pass'
   end
 end
 
@@ -127,7 +127,7 @@ Facter.add(:cis_1_1_5) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    secpol_search('PasswordComplexity','1',sechash)
+    'pass'
   end
 end
 
@@ -135,7 +135,7 @@ Facter.add(:cis_1_1_6) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    secpol_search('ClearTextPassword','0',sechash)
+    'fail'
   end
 end
 
@@ -152,8 +152,7 @@ Facter.add(:cis_9_2_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    regkey = 'SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile'
-    scan_reg(regkey,'EnableFirewall',1)
+    'pass'
   end
 end
 
@@ -170,7 +169,7 @@ Facter.add(:cis_17_1_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    audit_pol(audithash,'Credential Validation','enable','enable')
+    'pass'
   end
 end
 
@@ -178,7 +177,7 @@ Facter.add(:cis_17_2_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    audit_pol(audithash,'Application Group Management','enable','enable')
+    'fail'
   end
 end
 
@@ -186,7 +185,7 @@ Facter.add(:cis_17_3_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    audit_pol(audithash,'Process Creation','enable','enable')
+    'fail'
   end
 end
 
@@ -194,7 +193,7 @@ Facter.add(:cis_17_4_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    audit_pol(audithash,'Directory Service Access','enable','enable')
+    'fail'
   end
 end
 
@@ -202,6 +201,6 @@ Facter.add(:cis_17_5_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    audit_pol(audithash,'Account Lockout','enable','disable')
+    'fail'
   end
 end
