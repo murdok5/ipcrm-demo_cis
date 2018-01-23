@@ -50,8 +50,7 @@ Facter.add(:cis_9_1_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    regkey = 'SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile'
-    scan_reg(regkey,'EnableFirewall',1)
+    'fail'
   end
 end
 
@@ -67,8 +66,7 @@ Facter.add(:cis_9_3_1) do
   confine :osfamily => 'windows'
   #confine :operatingsystemmajrelease => '2012 R2'
   setcode do
-    regkey = 'SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile'
-    scan_reg(regkey,'EnableFirewall',1)
+    'fail'
   end
 end
 
